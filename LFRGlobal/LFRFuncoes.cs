@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using static EstudoVendas.Conexao.DbConstante;
+using static EstudoVendas.LFRGlobal.LFRImutavel;
 
 namespace EstudoVendas.LFRGlobal
 {
@@ -36,6 +32,20 @@ namespace EstudoVendas.LFRGlobal
                                    Ini.GetString(SECAO_BANCO_DADOS, CONFIG_PASSWORD),
                                    Ini.GetString(SECAO_BANCO_DADOS, COFING_DATABASE),
                                    Ini.GetString(SECAO_BANCO_DADOS, CONFIG_PORT));
+        }
+
+        public static bool SetArchiveConfig(string typeBase, string server, string database, int port, string userName, string password)
+        {
+            using (ConfigIni ini = new ConfigIni(PathConfig.PATH_CONFIG + ARQUIVO_CONFIG))
+            {
+                ini.SetString(SECAO_BANCO_DADOS, CONFIG_TYPE_DATABASE, typeBase);
+                ini.SetString(SECAO_BANCO_DADOS, CONFIG_SERVER, server);
+                ini.SetString(SECAO_BANCO_DADOS, COFING_DATABASE, database);
+                ini.SetInt(SECAO_BANCO_DADOS, CONFIG_PORT, port);
+                ini.SetString(SECAO_BANCO_DADOS, CONFIG_USER_NAME, userName);
+                ini.SetString(SECAO_BANCO_DADOS, CONFIG_PASSWORD, password);
+            }
+            return true;
         }
     }
 }

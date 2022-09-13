@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Data.Sqlite;
-using System.IO;
 using static EstudoVendas.Conexao.DbConstante;
-using EstudoVendas.LFRGlobal;
+using static EstudoVendas.LFRGlobal.LFRImutavel;
 
 namespace EstudoVendas.Conexao
 {

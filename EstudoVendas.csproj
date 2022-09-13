@@ -104,6 +104,7 @@
     <Compile Include="Controller\Login.cs" />
     <Compile Include="LFRGlobal\LFRFuncoes.cs" />
     <Compile Include="LFRGlobal\LFRConstante.cs" />
+    <Compile Include="LFRGlobal\LFRImutavel.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="View\frmConfiguracaoBanco.cs">
       <SubType>Form</SubType>

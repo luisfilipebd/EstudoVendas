@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using EstudoVendas.Conexao;
-using EstudoVendas.LFRGlobal;
+using static EstudoVendas.LFRGlobal.LFRConstante;
 using static EstudoVendas.Conexao.DbConstante;
 using static EstudoVendas.LFRGlobal.LFRConstante.Message;
+using static EstudoVendas.LFRGlobal.LFRImutavel;
 
 namespace EstudoVendas
 {
@@ -38,6 +32,10 @@ namespace EstudoVendas
             if ((TxtUsuario.Text == "Admin") && (TxtSenha.Text == "Admin"))
             {
                 this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show(FalhaLogin, sTitWarning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
