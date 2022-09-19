@@ -1,19 +1,11 @@
 ﻿using EstudoVendas.Conexao;
-using EstudoVendas.Controller;
 using EstudoVendas.LFRGlobal;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static EstudoVendas.Conexao.DbConstante;
 using static EstudoVendas.LFRGlobal.LFRConstante.Message;
 using static EstudoVendas.LFRGlobal.EnumExtensions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static EstudoVendas.LFRGlobal.LFRImutavel;
 
 namespace EstudoVendas.View
 {
@@ -26,7 +18,13 @@ namespace EstudoVendas.View
 
         private void BtnTestarConexao_Click(object sender, EventArgs e)
         {
-            if (DbConnection.Connected(DbConnection.GetConnection(DBManagement.MSSQL)))
+            DBManagement Tipo = (DBManagement)CbTipoBanco.SelectedIndex;
+
+            if (DbConnection.Connected(DbConnection.GetConnectionTest(Tipo,
+                                                                      TxtServidor.Text,
+                                                                      TxtUsuario.Text,
+                                                                      TxtSenha.Text,
+                                                                      TxtBancoDados.Text)))
             {
                 MessageBox.Show(CONEXAO_ESTABELECIDA, sTitInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -40,8 +38,8 @@ namespace EstudoVendas.View
         {
             DBManagement Tipo = (DBManagement)CbTipoBanco.SelectedIndex;
 
-            Controller.Login Funcao = new Controller.Login();
-            Model.Login Dados = new Model.Login
+            Controller.UserControl Funcao = new Controller.UserControl();
+            Model.UserModel Dados = new Model.UserModel
             {
                 TipoBanco = Tipo.GetDescriptionAttribute(),
                 Servidor = TxtServidor.Text,
@@ -75,9 +73,19 @@ namespace EstudoVendas.View
 
         private void TxtPorta_Leave(object sender, EventArgs e)
         {
-            if (TxtPorta.Text == "") {
+            if (String.IsNullOrEmpty(TxtPorta.Text)) {
                 TxtPorta.Text = "0";
             }
+        }
+
+        private void FrmConfiguracaoBanco_Load(object sender, EventArgs e)
+        {
+            CbTipoBanco.SelectedIndex = (int)ArqConfig.TYPE;
+            TxtBancoDados.Text = ArqConfig.DATABASE;
+            TxtPorta.Text = ArqConfig.PORT;
+            TxtSenha.Text = ArqConfig.PASSWORD;
+            TxtServidor.Text = ArqConfig.SERVER;
+            TxtUsuario.Text = ArqConfig.USER_NAME;
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EstudoVendas.Conexao;
+using System;
 using System.ComponentModel;
+using System.Data;
 using static EstudoVendas.Conexao.DbConstante;
 using static EstudoVendas.LFRGlobal.LFRImutavel;
 
@@ -25,7 +27,7 @@ namespace EstudoVendas.LFRGlobal
         {
             ConfigIni Ini = new ConfigIni(PathConfig.PATH_CONFIG + ARQUIVO_CONFIG);
 
-            ArqConfig.GetArqConfig(Conexao.DBManagement.MSSQL,
+            ArqConfig.GetArqConfig((DBManagement)Enum.Parse(typeof(DBManagement), Ini.GetString(SECAO_BANCO_DADOS, CONFIG_TYPE_DATABASE)),
                                    Ini.GetString(SECAO_BANCO_DADOS, CONFIG_TYPE_DATABASE),
                                    Ini.GetString(SECAO_BANCO_DADOS, CONFIG_SERVER),
                                    Ini.GetString(SECAO_BANCO_DADOS, CONFIG_USER_NAME),
@@ -40,8 +42,8 @@ namespace EstudoVendas.LFRGlobal
             {
                 ini.SetString(SECAO_BANCO_DADOS, CONFIG_TYPE_DATABASE, typeBase);
                 ini.SetString(SECAO_BANCO_DADOS, CONFIG_SERVER, server);
-                ini.SetString(SECAO_BANCO_DADOS, COFING_DATABASE, database);
                 ini.SetInt(SECAO_BANCO_DADOS, CONFIG_PORT, port);
+                ini.SetString(SECAO_BANCO_DADOS, COFING_DATABASE, database);
                 ini.SetString(SECAO_BANCO_DADOS, CONFIG_USER_NAME, userName);
                 ini.SetString(SECAO_BANCO_DADOS, CONFIG_PASSWORD, password);
             }

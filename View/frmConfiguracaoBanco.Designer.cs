@@ -54,7 +54,7 @@
             "PostgreSQL",
             "Firebird",
             "SQLite"});
-            this.CbTipoBanco.Location = new System.Drawing.Point(15, 25);
+            this.CbTipoBanco.Location = new System.Drawing.Point(12, 25);
             this.CbTipoBanco.Name = "CbTipoBanco";
             this.CbTipoBanco.Size = new System.Drawing.Size(300, 21);
             this.CbTipoBanco.TabIndex = 0;
@@ -62,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
@@ -71,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 49);
+            this.label2.Location = new System.Drawing.Point(9, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 13);
             this.label2.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // TxtServidor
             // 
-            this.TxtServidor.Location = new System.Drawing.Point(15, 65);
+            this.TxtServidor.Location = new System.Drawing.Point(12, 65);
             this.TxtServidor.Name = "TxtServidor";
             this.TxtServidor.Size = new System.Drawing.Size(300, 20);
             this.TxtServidor.TabIndex = 2;
@@ -87,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 88);
+            this.label3.Location = new System.Drawing.Point(9, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // TxtBancoDados
             // 
-            this.TxtBancoDados.Location = new System.Drawing.Point(15, 104);
+            this.TxtBancoDados.Location = new System.Drawing.Point(12, 104);
             this.TxtBancoDados.Name = "TxtBancoDados";
             this.TxtBancoDados.Size = new System.Drawing.Size(300, 20);
             this.TxtBancoDados.TabIndex = 3;
@@ -111,7 +111,7 @@
             // 
             // TxtPorta
             // 
-            this.TxtPorta.Location = new System.Drawing.Point(15, 143);
+            this.TxtPorta.Location = new System.Drawing.Point(12, 143);
             this.TxtPorta.Name = "TxtPorta";
             this.TxtPorta.Size = new System.Drawing.Size(50, 20);
             this.TxtPorta.TabIndex = 4;
@@ -120,7 +120,7 @@
             // 
             // TxtSenha
             // 
-            this.TxtSenha.Location = new System.Drawing.Point(200, 143);
+            this.TxtSenha.Location = new System.Drawing.Point(197, 143);
             this.TxtSenha.Name = "TxtSenha";
             this.TxtSenha.Size = new System.Drawing.Size(115, 20);
             this.TxtSenha.TabIndex = 6;
@@ -128,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(197, 127);
+            this.label5.Location = new System.Drawing.Point(194, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 8;
@@ -136,7 +136,7 @@
             // 
             // BtnSalvar
             // 
-            this.BtnSalvar.Location = new System.Drawing.Point(240, 169);
+            this.BtnSalvar.Location = new System.Drawing.Point(237, 169);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(75, 23);
             this.BtnSalvar.TabIndex = 8;
@@ -146,7 +146,7 @@
             // 
             // BtnTestarConexao
             // 
-            this.BtnTestarConexao.Location = new System.Drawing.Point(130, 169);
+            this.BtnTestarConexao.Location = new System.Drawing.Point(127, 169);
             this.BtnTestarConexao.Name = "BtnTestarConexao";
             this.BtnTestarConexao.Size = new System.Drawing.Size(104, 23);
             this.BtnTestarConexao.TabIndex = 7;
@@ -156,7 +156,7 @@
             // 
             // TxtUsuario
             // 
-            this.TxtUsuario.Location = new System.Drawing.Point(75, 143);
+            this.TxtUsuario.Location = new System.Drawing.Point(68, 143);
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(115, 20);
             this.TxtUsuario.TabIndex = 5;
@@ -164,7 +164,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(72, 127);
+            this.label6.Location = new System.Drawing.Point(65, 127);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 12;
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 204);
+            this.ClientSize = new System.Drawing.Size(324, 204);
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.BtnTestarConexao);
@@ -189,9 +189,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CbTipoBanco);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmConfiguracaoBanco";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações de Acesso ao Banco";
+            this.Load += new System.EventHandler(this.FrmConfiguracaoBanco_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

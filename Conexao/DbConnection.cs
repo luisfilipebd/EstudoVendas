@@ -9,29 +9,30 @@ namespace EstudoVendas.Conexao
 {
     public class DbConnection
     {
-        private static string GetConncetionString()
+        private static string GetConncetionStringTest(DBManagement typeDB, string server, string userName, string password, string database)
         {
-            //ConfigIni Ini = new ConfigIni(PathConfig.PATH_CONFIG + ARQUIVO_CONFIG);
+            return string.Format(GetConncetionConstant(typeDB),
+                                 server,
+                                 userName,
+                                 password,
+                                 database);
+        }
 
-            //return string.Format(CONNECTION_STRING_MSSQL,
-            //                     Ini.GetString(SECAO_BANCO_DADOS, CONFIG_SERVER),
-            //                     Ini.GetString(SECAO_BANCO_DADOS, CONFIG_USER_NAME),
-            //                     Ini.GetString(SECAO_BANCO_DADOS, CONFIG_PASSWORD),
-            //                     Ini.GetString(SECAO_BANCO_DADOS, COFING_DATABASE));
-
-            return string.Format(CONNECTION_STRING_MSSQL,
+        private static string GetConncetionString(DBManagement typeDB)
+        {
+            return string.Format(GetConncetionConstant(typeDB),
                                  ArqConfig.SERVER,
                                  ArqConfig.USER_NAME,
                                  ArqConfig.PASSWORD,
                                  ArqConfig.DATABASE);
         }
 
-        public static IDbConnection GetConnection(DBManagement TypeDB)
+        public static IDbConnection GetConnectionTest(DBManagement typeDB, string server, string userName, string password, string database)
         {
-            switch(TypeDB)
+            switch (typeDB)
             {
                 case DBManagement.MSSQL:
-                    return GetConnMSSQL(GetConncetionString());
+                    return GetConnMSSQL(GetConncetionStringTest(typeDB, server, userName, password, database));
                 case DBManagement.MariaDB:
                     return null;
                 case DBManagement.MySQL:
@@ -41,11 +42,54 @@ namespace EstudoVendas.Conexao
                 case DBManagement.Firebird:
                     return null;
                 case DBManagement.SQLite:
-                    return GetConnSQLite(GetConncetionString());
+                    return GetConnSQLite(GetConncetionStringTest(typeDB, server, userName, password, database));
                 default:
                     return null;
             }
         }
+
+        public static IDbConnection GetConnection(DBManagement typeDB)
+        {
+            switch(typeDB)
+            {
+                case DBManagement.MSSQL:
+                    return GetConnMSSQL(GetConncetionString(typeDB));
+                case DBManagement.MariaDB:
+                    return null;
+                case DBManagement.MySQL:
+                    return null;
+                case DBManagement.PostgreSQL:
+                    return null;
+                case DBManagement.Firebird:
+                    return null;
+                case DBManagement.SQLite:
+                    return GetConnSQLite(GetConncetionString(typeDB));
+                default:
+                    return null;
+            }
+        }
+
+        public static string GetConncetionConstant(DBManagement typeDB)
+        {
+            switch (typeDB)
+            {
+                case DBManagement.MSSQL:
+                    return CONNECTION_STRING_MSSQL;
+                case DBManagement.MariaDB:
+                    return null;
+                case DBManagement.MySQL:
+                    return null;
+                case DBManagement.PostgreSQL:
+                    return null;
+                case DBManagement.Firebird:
+                    return null;
+                case DBManagement.SQLite:
+                    return null;
+                default:
+                    return null;
+            }
+        }
+
         public static SqlConnection GetConnMSSQL(string connString)
         {
             SqlConnection myConn = new SqlConnection(connString);
@@ -58,6 +102,7 @@ namespace EstudoVendas.Conexao
                 throw new Exception(CONEXAO_PERDA + ex.Message);
             }
         }
+
         public static SqliteConnection GetConnSQLite(string connString)
         {
             SqliteConnection myConn = new SqliteConnection(connString);
@@ -70,6 +115,7 @@ namespace EstudoVendas.Conexao
                 throw new Exception(CONEXAO_PERDA + LINE_BREAK + MSG_ERRO + ex.Message);
             }
         }
+
         public static bool Connected(IDbConnection con)
         {
             try

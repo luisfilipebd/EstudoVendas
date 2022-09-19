@@ -101,11 +101,12 @@
   <ItemGroup>
     <Compile Include="Conexao\DbConstante.cs" />
     <Compile Include="Conexao\DbConnection.cs" />
-    <Compile Include="Controller\Login.cs" />
+    <Compile Include="Controller\UserControl.cs" />
+    <Compile Include="Interface\UserInterface.cs" />
     <Compile Include="LFRGlobal\LFRFuncoes.cs" />
     <Compile Include="LFRGlobal\LFRConstante.cs" />
     <Compile Include="LFRGlobal\LFRImutavel.cs" />
-    <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="View\frmConfiguracaoBanco.cs">
       <SubType>Form</SubType>
     </Compile>

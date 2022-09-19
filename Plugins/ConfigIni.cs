@@ -203,7 +203,7 @@ public class ConfigIni : IDisposable
             if (!secoes.Contains(sectionPair.Section))
                 secoes.Add(sectionPair.Section);
         }
-        secoes.Sort();
+        //secoes.Sort();
 
         // para para cada seção:
         foreach (string section in secoes)
@@ -229,7 +229,7 @@ public class ConfigIni : IDisposable
             }
 
             // ordena as chaves
-            strChaveValor.Sort();
+            //strChaveValor.Sort();
 
             // percorre cada chave/valor e adiciona na StringBuilder de saída
             foreach (var chaveValor in strChaveValor)

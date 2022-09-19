@@ -34,6 +34,7 @@
             this.TxtSenha = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.LblTestarConexao = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -83,7 +84,7 @@
             // LblTestarConexao
             // 
             this.LblTestarConexao.AutoSize = true;
-            this.LblTestarConexao.Location = new System.Drawing.Point(231, 288);
+            this.LblTestarConexao.Location = new System.Drawing.Point(210, 288);
             this.LblTestarConexao.Name = "LblTestarConexao";
             this.LblTestarConexao.Size = new System.Drawing.Size(82, 13);
             this.LblTestarConexao.TabIndex = 6;
@@ -91,12 +92,24 @@
             this.LblTestarConexao.Text = "Testar Conexão";
             this.LblTestarConexao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblTestarConexao_LinkClicked);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(12, 288);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(192, 13);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Abrir Configuração do Banco de Dados";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // FrmLogin
             // 
             this.AcceptButton = this.BtnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 310);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.LblTestarConexao);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtSenha);
@@ -119,5 +132,6 @@
         private System.Windows.Forms.TextBox TxtSenha;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.LinkLabel LblTestarConexao;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

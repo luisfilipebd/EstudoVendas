@@ -5,6 +5,7 @@ using static EstudoVendas.LFRGlobal.LFRConstante;
 using static EstudoVendas.Conexao.DbConstante;
 using static EstudoVendas.LFRGlobal.LFRConstante.Message;
 using static EstudoVendas.LFRGlobal.LFRImutavel;
+using EstudoVendas.View;
 
 namespace EstudoVendas
 {
@@ -29,7 +30,7 @@ namespace EstudoVendas
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if ((TxtUsuario.Text == "Admin") && (TxtSenha.Text == "Admin"))
+            if ((TxtUsuario.Text.Equals("Admin")) && (TxtSenha.Text.Equals("Admin")))
             {
                 this.DialogResult = DialogResult.OK;
             }
@@ -37,6 +38,12 @@ namespace EstudoVendas
             {
                 MessageBox.Show(FalhaLogin, sTitWarning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var form = new FrmConfiguracaoBanco();
+            form.ShowDialog();
         }
     }
 }
